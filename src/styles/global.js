@@ -51,16 +51,6 @@ const GlobalStyles = createGlobalStyle`
         font-size: 1.5rem;
         color: ${props => props.theme.colors.font};
     }
-/*
-    a {
-        color: ${props => props.theme.colors.white};
-        text-decoration: none;
-
-        :hover {
-            transition: .5s ease;
-            color: ${props => props.theme.colors.yellow}
-        }
-    } */
 `
 
 export default GlobalStyles

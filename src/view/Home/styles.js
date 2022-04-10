@@ -9,11 +9,42 @@ export const Header = styled.div`
 export const Container = styled.div`
     width: 100%;
     max-width: 1000px;
-    margin: -150px auto;
+    margin: -200px auto;
 
     @media (max-width: 767px) { width: 90%; }
-    @media (min-width: 768px) and (max-width: 1024px) {  width: 85%; }
+    @media (min-width: 768px) and (max-width: 1024px) { width: 85%; }
     @media (min-width: 1025px) { width: 65%; }
+`
+
+export const Search = styled.div`
+    max-width: 100%;
+    margin-bottom: 25px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 25px -5px rgba(0,0,0,.2);
+
+    input, button {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+        border: none;
+        color: ${props => props.theme.colors.font};
+    }
+
+    input {
+        width: calc(100% - 150px);
+        border-radius: 25px 0 0 25px;
+        background: ${props => props.theme.colors.card};
+    }
+
+    button {
+        width: 150px;
+        cursor: pointer;
+        border-radius: 0 25px 25px 0;
+
+        :hover {
+            transition: .5s ease;
+            filter: brightness(.9);
+        }
+    }
 `
 
 export const CardToday = styled.div`
@@ -24,8 +55,7 @@ export const CardToday = styled.div`
     margin-bottom: 3rem;
     background: ${props => props.theme.colors.card};
     box-shadow: 0px 0px 25px -5px rgba(0,0,0,0.1);
-
-    @media (min-width: 1025px) { overflow: hidden; }
+    overflow: hidden;
 
     img {
         position: absolute;
@@ -33,6 +63,16 @@ export const CardToday = styled.div`
         right: -2%;
         top: -20%;
         user-select: none;
+
+        @media (max-width: 767px) {
+            position: relative;
+            margin: 20px 0 -20px 0;
+            width: 100%;
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+            right: -3%;
+            top: -15%;
+        }
     }
 
     .mid { margin: 2.3rem 0 8px 0; }

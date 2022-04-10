@@ -11,6 +11,7 @@ import icons from '../../utils/icons'
 import {
     Header,
     Container,
+    Search,
     CardToday,
     Cards,
     Footer
@@ -46,14 +47,17 @@ function App() {
     }
 
     const [weather, setWeather] = useState({})
+    const [city, setCity] = useState('')
 
     const params = {
         format: 'json-cors',
-        city_name: 'Lins',
+        city_name: city || 'São Paulo',
         key: process.env.REACT_APP_ACCESS_KEY_API
     }
 
     async function loadData() {
+        console.log('https://api.hgbrasil.com/weather', {params})
+
         await axios.get('https://api.hgbrasil.com/weather', {params})
         .then(response => {
             setWeather(response.data.results)
@@ -107,6 +111,15 @@ function App() {
         <>
             <Header />
             <Container>
+                <Search>
+                    <input
+                        type="text"
+                        placeholder="Cidade que você deseja saber o tempo"
+                        onChange={e => setCity(e.target.value)}
+                        value={city}
+                    />
+                    <button type="button" onClick={loadData}>Pesquisar</button>
+                </Search>
                 <CardToday>
                     <div className="top">
                         <p>Hoje, {format(new Date(), "dd' de 'MMMM", locale)}</p>
@@ -131,7 +144,7 @@ function App() {
                 <h3>Próximos dias</h3>
                 <Cards>
                     <Slider {...slideSettings}>
-                        { weather.forecast && weather.forecast.map(loadCardsWeek) }
+                        { weather.forecast ? weather.forecast.map(loadCardsWeek) : <p>Carregando...</p> }
                     </Slider>
                 </Cards>
                 <Footer>

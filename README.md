@@ -1,6 +1,6 @@
 # Weather
 Sistema de previsão do tempo (front-end). Todos os dados do sistema são da API HG Weather.
-Sistema em desenvolvimento, brevemente, implementação de pesquisar cidade e gerar dados de acordo com a localização.
+Sistema em desenvolvimento, brevemente, implementação de gerar dados de acordo com a localização.
 
 Link da API:
 https://hgbrasil.com/status/weather
