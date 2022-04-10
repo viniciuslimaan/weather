@@ -9,7 +9,7 @@ Projeto no figma:
 https://www.figma.com/file/a7l4LAlrTGimZjTI0ZggZr/Home-page?node-id=0%3A1
 
 Deploy do projeto:
-...
+https://weatherforecastvl.vercel.app/
 
 Para visualizar em seu computador use:
 

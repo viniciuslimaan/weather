@@ -56,8 +56,6 @@ function App() {
     }
 
     async function loadData() {
-        console.log('https://api.hgbrasil.com/weather', {params})
-
         await axios.get('https://api.hgbrasil.com/weather', {params})
         .then(response => {
             setWeather(response.data.results)
